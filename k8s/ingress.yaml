@@ -4,16 +4,11 @@ metadata:
   name: legal-brief-cloud
   namespace: staging
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    # Adjust these annotations based on your cluster's ingress controller
+    kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-        - legal-brief-cloud.example.com
-      secretName: legal-brief-cloud-tls
   rules:
-    - host: legal-brief-cloud.example.com
+    - host: caseinfo-kx25fqdj.manus.space
       http:
         paths:
           - path: /
